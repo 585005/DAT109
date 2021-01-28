@@ -33,17 +33,17 @@ public class Brikke {
 				System.out.println("\n" + "GRATULERER, DU VANT SPILLET!" + "\n");
 				setRute(rute);
 			} else if (spesialRute(rute) == 1) {
-				int nyRute = brett.getRute(nyPlass).getNy() + 1;
-				rute = brett.getRute(rute.getNy() + 1);
+				int nyRute = brett.getRute(nyPlass).getNy();
+				rute = brett.getRute(rute.getNy());
 				System.out
-						.println("Du havnet på en stige, du er flyttet fra rute " + (nyPlass) + " til rute " + nyRute);
+						.println("Du havnet på en stige, du er flyttet fra rute " + (nyPlass) + " til rute " + (nyRute));
 				setRute(rute);
 
 			} else if (spesialRute(rute) == -1) {
-				int nyRute = brett.getRute(nyPlass).getNy() + 1;
-				rute = brett.getRute(rute.getNy() + 1);
+				int nyRute = brett.getRute(nyPlass).getNy();
+				rute = brett.getRute(rute.getNy());
 				System.out
-						.println("Du havnet på en slange, du er flyttet fra rute " + (nyPlass) + " til rute " + nyRute);
+						.println("Du havnet på en slange, du er flyttet fra rute " + (nyPlass) + " til rute " + (nyRute));
 				setRute(rute);
 
 			} else {
@@ -65,7 +65,7 @@ public class Brikke {
 	 * 
 	 * @param nySum er den nye summen (gammel plass + ny plass)
 	 */
-	private void maal(int nySum) {
+	public void maal(int nySum) {
 		int sum = nySum - 100;
 		if (nySum > 100) {
 			System.out.println("Du havner " + sum + " trekk utenfor brettet. Du må treffe akkurat på 100 for å vinne!");
@@ -78,7 +78,7 @@ public class Brikke {
 	 * @param nummer
 	 * @return
 	 */
-	private boolean innspurt(int nummer) {
+	public boolean innspurt(int nummer) {
 
 		if (nummer >= 94) {
 			return true;
@@ -92,7 +92,7 @@ public class Brikke {
 	 * @param rute
 	 * @return 1 hvis du landet på en stige, -1 hvis du landet på en slange
 	 */
-	private int spesialRute(Rute rute) {
+	public int spesialRute(Rute rute) {
 		int type = rute.getType();
 		int sum = 0;
 
